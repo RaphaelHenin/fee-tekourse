@@ -2,47 +2,49 @@ openapi: 3.0.3
 info:
   title: Swagger  Recipe - OpenApi 3
   description: |-
-   Swagger for the Recipes API
+    Swagger for the Recipes API
   termsOfService: http://swagger.io/terms/
   contact:
     email: raphael.henin@laposte.net
-  version: 1.0
+  version: '1.0'
 servers:
   - url: https://fee-tekourse/api/v3
 tags:
   - name: recipe
-    description: Everything about your Pets
+    description: Everything about recipe
     externalDocs:
       description: Find out more
       url: http://swagger.io
 paths:
-  /example/{id}:
-    get:
+  /api/v1/private/ingredient:
+    post:
       tags:
         - recipe
-      summary: Get recipe
-      description: Get recipe by Id
-      operationId: getRecipe
-      parameters:
-        - name: id
-          in: path
-          description: id of the recipe
-          required: true
-          schema:
-            type: string
+      summary: Add an ingredient
+      description: Add ingredient
+      operationId: addIngredient
+      requestBody:
+        required: true
+        description: The Ingredient info to add
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Ingredient"
       responses:
-        '200':
-          description: Successful operation
+        '201':
+          description: Resource created
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Recipe'
+                type: integer
+                format: int64
+                example: 1
         '400':
           description: Invalid ID supplied
         '404':
           description: Recipe not found
-        '405':
-          description: Validation exception
+        '409':
+          description: Conflict, the resource already exist
 components:
   schemas:
     Recipe:
@@ -55,3 +57,19 @@ components:
         name:
           type: string
           example: doggie
+    Ingredient:
+      type: object
+      required:
+        - name
+        - unit_mesure
+      properties:
+        name:
+          type: string
+          example: tomate
+        unit_mesure:
+          type: array
+          items:
+            type: string
+          example:
+            - unit
+            - kg

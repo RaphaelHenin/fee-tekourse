@@ -44,6 +44,7 @@
                                 <apiPackage>fr.fee.tekourse.feetekourse.recipe.api</apiPackage>
                                 <sourceFolder>src/gen/java/main</sourceFolder>
                                 <useSpringBoot3>true</useSpringBoot3>
+                                <useTags>true</useTags>
                             </configOptions>
                         </configuration>
                     </execution>
