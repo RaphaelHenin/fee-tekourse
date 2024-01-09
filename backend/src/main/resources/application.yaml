@@ -5,3 +5,9 @@ server:
   port: 8080
   servlet:
     context-path: /fee-tekourse
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
