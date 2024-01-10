@@ -1,0 +1,28 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: rhenin
+      changes:
+        - createTable:
+            tableName: recipe_ingredient
+            columns:
+              - column:
+                  name: ingredient_id
+                  type: INT
+                  constraints:
+                    foreignKeyName: fk_ingredient_id
+                    references: ingredient(id)
+                    nullable:  false
+              - column:
+                  name: recipe_id
+                  type: INT
+                  constraints:
+                    foreignKeyName: fk_recipe_id
+                    references: recipe(id)
+                    nullable:  false
+              - column:
+                  name: measure
+                  type: VARCHAR
+              - column:
+                  name: quantity
+                  type: FLOAT

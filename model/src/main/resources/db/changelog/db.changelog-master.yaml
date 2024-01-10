@@ -1,0 +1,5 @@
+databaseChangeLog:
+  - includeAll:
+      path: db/changelog/schema/
+  - include:
+      file: db/changelog/data/insert_hachis_parmentier_recipe.yaml

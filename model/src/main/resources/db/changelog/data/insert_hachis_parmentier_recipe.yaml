@@ -1,0 +1,74 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: rhenin
+      changes:
+        - insert:
+            tableName: recipe
+            columns:
+            - column:
+                name: name
+                value: "Hachis Parmentier"
+        - insert:
+            tableName: ingredient
+            columns:
+              - column:
+                  name: name
+                  value: "Pomme de Terre"
+        - insert:
+            tableName: ingredient
+            columns:
+              - column:
+                  name: name
+                  value: "Viande haché"
+        - insert:
+            tableName: ingredient
+            columns:
+              - column:
+                  name: name
+                  value: "Oignon"
+        - insert:
+            tableName: recipe_ingredient
+            columns:
+              - column:
+                  name: ingredient_id
+                  value: 1
+              - column:
+                  name: recipe_id
+                  value: 1
+              - column:
+                  name: measure
+                  value: "Kg"
+              - column:
+                  name: quantity
+                  value: 1
+        - insert:
+            tableName: recipe_ingredient
+            columns:
+              - column:
+                  name: ingredient_id
+                  value: 2
+              - column:
+                  name: recipe_id
+                  value: 1
+              - column:
+                  name: measure
+                  value: "Kg"
+              - column:
+                  name: quantity
+                  value: 1
+        - insert:
+            tableName: recipe_ingredient
+            columns:
+              - column:
+                  name: ingredient_id
+                  value: 3
+              - column:
+                  name: recipe_id
+                  value: 1
+              - column:
+                  name: measure
+                  value: "Unit"
+              - column:
+                  name: quantity
+                  value: 2
